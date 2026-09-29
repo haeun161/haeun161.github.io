@@ -438,7 +438,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .timeline-item {
   display: flex;
   width: 340px;
-  min-height: 150px;
+  min-height: 175px;
   flex: 0 0 auto;
   align-items: center;
   gap: 18px;
@@ -454,9 +454,9 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .timeline-item:hover { transform: translateY(-4px); box-shadow: 0 16px 34px var(--shadow); }
 .experience-logo-placeholder {
   display: grid;
-  width: 76px;
-  height: 76px;
-  flex: 0 0 76px;
+  width: 84px;
+  height: 84px;
+  flex: 0 0 84px;
   place-items: center;
   border-radius: 16px;
   background: #fff;
