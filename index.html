@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Haeun Lee | Personal Profile</title>
+	<meta name="description" content="Haeun Lee studies Computer Engineering and AI Convergence at Yonsei University.">
+	<meta name="theme-color" content="#f5f7fa">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/main.js" defer></script>
+</head>
+<body>
+	<a class="skip-link" href="#main">Skip to main content</a>
+
+	<nav class="section-nav" aria-label="Page sections">
+		<button class="nav-current" id="nav-current" type="button" aria-expanded="false" aria-controls="nav-list" aria-label="Choose a page section">
+			<span id="current-section-name">Home</span>
+			<span class="nav-chevron" aria-hidden="true">⌄</span>
+		</button>
+		<ul class="nav-list" id="nav-list" hidden>
+			<li><a href="#home">Home</a></li>
+			<li><a href="#research">Research</a></li>
+			<li><a href="#experience">Experience</a></li>
+			<li><a href="#education">Education</a></li>
+			<li><a href="#publications">Publications</a></li>
+		</ul>
+	</nav>
+	<button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark theme" title="Toggle theme">
+		<span class="theme-icon" aria-hidden="true">☾</span>
+		<span class="theme-label">Theme</span>
+	</button>
+
+	<main id="main" class="page-shell">
+		<section class="profile-slide" id="home" aria-labelledby="profile-name">
+			<div class="profile-card">
+				<div class="profile-visual">
+					<img class="portrait" id="profile-photo" src="assets/profile.jpg" alt="" width="140" height="140">
+				</div>
+				<div class="profile-copy">
+					<p class="eyebrow"><span class="status-dot"></span> HELLO, WORLD <span class="eyebrow-rule"></span> PROFILE</p>
+					<h1 id="profile-name"><span class="name-period">.</span></h1>
+					<p class="profile-role" id="profile-role"></p>
+					<p class="profile-affiliation" id="profile-affiliation"></p>
+					<p class="profile-summary" id="profile-summary"></p>
+					<div class="profile-links" id="profile-links" aria-label="External profiles">
+					</div>
+					<div class="hobby-list" id="hobby-list" aria-label="Interests outside my studies">
+					</div>
+				</div>
+			</div>
+			<a class="slide-cue" href="#research"><span>SCROLL TO EXPLORE</span><span aria-hidden="true">↓</span></a>
+		</section>
+
+		<section class="content-section about-section" id="research" aria-labelledby="research-title">
+			<div class="section-heading">
+				<p class="section-kicker">01 / WHAT I WORK ON</p>
+				<h2 id="research-title">Research Interests<span class="name-period">.</span></h2>
+			</div>
+			<div class="about-grid">
+				<p class="about-lead" id="research-lead"></p>
+				<div class="about-detail">
+					<p id="research-summary"></p>
+					<p class="interest-label">CURRENT INTERESTS</p>
+					<ul class="interest-list" id="interest-list" aria-label="Research interests">
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<section class="content-section" id="experience" aria-labelledby="experience-title">
+			<div class="section-heading section-heading-row">
+				<div>
+					<p class="section-kicker">02 / WHERE I'VE BEEN</p>
+					<h2 id="experience-title">Experience<span class="name-period">.</span></h2>
+				</div>
+				<p class="section-aside">WORK & EXPERIENCE</p>
+			</div>
+			<div class="timeline-container" tabindex="0" role="region" aria-label="Experience timeline. Scroll horizontally to view positions.">
+				<div class="timeline" id="timeline-experience"></div>
+			</div>
+		</section>
+
+		<section class="content-section education-section" id="education" aria-labelledby="education-title">
+			<div class="section-heading section-heading-row">
+				<div>
+					<p class="section-kicker">03 / WHAT I'VE LEARNED</p>
+					<h2 id="education-title">Education<span class="name-period">.</span></h2>
+				</div>
+				<p class="section-aside">EDUCATION</p>
+			</div>
+			<div class="education-list" id="education-list"></div>
+		</section>
+
+		<section class="content-section publications-section" id="publications" aria-labelledby="publications-title">
+			<div class="section-heading section-heading-row">
+				<div>
+					<p class="section-kicker">05 / WRITING &amp; RESEARCH</p>
+					<h2 id="publications-title">Publications<span class="name-period">.</span></h2>
+				</div>
+				<p class="section-aside">PUBLICATIONS</p>
+			</div>
+			<a class="scholar-profile-link" id="scholar-profile-link" target="_blank" rel="noopener noreferrer" hidden>
+				View Google Scholar profile <span aria-hidden="true">↗</span>
+			</a>
+			<div class="publication-tabs" role="tablist" aria-label="Publication type">
+				<button class="publication-tab" id="papers-tab" type="button" role="tab" aria-selected="true" aria-controls="papers-panel" tabindex="0">Papers</button>
+				<button class="publication-tab" id="patents-tab" type="button" role="tab" aria-selected="false" aria-controls="patents-panel" tabindex="-1">Patents</button>
+			</div>
+			<div class="publication-search">
+				<label class="visually-hidden" for="publication-search">Search papers or patents</label>
+				<input id="publication-search" type="search" placeholder="Search papers">
+			</div>
+			<div class="publication-panel" id="papers-panel" role="tabpanel" aria-labelledby="papers-tab" tabindex="0">
+				<div class="publication-list" id="papers-list"></div>
+			</div>
+			<div class="publication-panel" id="patents-panel" role="tabpanel" aria-labelledby="patents-tab" tabindex="0" hidden>
+				<div class="publication-list" id="patents-list"></div>
+			</div>
+		</section>
+
+		<section class="contact-band" id="contact" aria-labelledby="contact-title">
+			<div>
+				<p class="section-kicker">HAVE A GOOD IDEA?</p>
+				<h2 id="contact-title">Let's connect<span class="name-period">.</span></h2>
+			</div>
+			<a class="contact-link" href="https://www.linkedin.com/in/haeun-lee-628225316/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn <span aria-hidden="true">↗</span></a>
+		</section>
+	</main>
+	<p class="visually-hidden" id="data-status" role="status" aria-live="polite"></p>
+
+	<footer class="site-footer">
+		<span>© <span id="current-year"></span> Haeun Lee</span>
+		<a href="#home">BACK TO TOP ↑</a>
+	</footer>
+</body>
+</html>

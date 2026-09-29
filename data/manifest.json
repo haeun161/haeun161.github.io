@@ -1,0 +1,24 @@
+{
+  "profile": "profile.json",
+  "research": "research.json",
+  "experience": [
+    "experience/position-01.json"
+  ],
+  "education": [
+    "education/degree-02.json",
+    "education/degree-01.json"
+  ],
+  "projects": [
+    "projects/federated-iot.json",
+    "projects/ship-motion.json",
+    "projects/gan-augmentation.json"
+  ],
+  "papers": [
+    "publications/paper-02.json",
+    "publications/paper-01.json"
+  ],
+  "patents": [
+    "patents/patent-01.json",
+    "patents/patent-02.json"
+  ]
+}

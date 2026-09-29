@@ -1,0 +1,11 @@
+{
+  "category": "DEEP LEARNING / RNN",
+  "title": "Real-Time 6-DOF Ship Motion Prediction",
+  "description": "Comparing RNN-based deep-learning models for real-time prediction of six-degree-of-freedom ship motion.",
+  "tags": [
+    "Time Series",
+    "Prediction"
+  ],
+  "url": "https://github.com/haeun161/Real-Time-6-DOF-Ship-Motion-Prediction",
+  "linkLabel": "View repository"
+}

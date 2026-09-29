@@ -1,0 +1,11 @@
+{
+  "category": "GENERATIVE AI / PYTHON",
+  "title": "GAN-Based Network Data Augmentation",
+  "description": "Exploring GAN-based augmentation of the UNSW-NB15 dataset and comparing model training results.",
+  "tags": [
+    "GANs",
+    "UNSW-NB15"
+  ],
+  "url": "https://github.com/haeun161/GAN_DataAugmentation-UNSW_NB15_Dataset",
+  "linkLabel": "View repository"
+}
