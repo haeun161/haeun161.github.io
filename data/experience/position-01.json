@@ -2,6 +2,6 @@
   "organization": "KAIST SAILab",
   "role": "Research Intern",
   "period": "2025.08 ~ 2026.09",
-  "description": "Research on diffusion models, focusing on understanding the internal representations and generation mechanisms.",
-  "logo": ""
+  "description": "Research on understanding the internal representations and generation mechanisms of Diffusion Models.",
+  "logo": "assets/experience/kaist_logo.png"
 }

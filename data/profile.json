@@ -1,8 +1,7 @@
 {
   "name": "Haeun Lee",
   "role": "M.S. Student in Artificial Intelligence",
-  "affiliation": "Yonsei University",
-  "summary": "I am an M.S. student in Artificial Intelligence at Yonsei University and a researcher in generative AI. My research focuses on understanding the internal representations and generation mechanisms of diffusion and flow-matching models.",
+  "affiliation": "M.S. student in Artificial Intelligence at Yonsei University",
   "photo": "assets/profile.jpg",
   "links": [
     {
@@ -17,10 +16,5 @@
       "label": "LinkedIn",
       "url": "https://www.linkedin.com/in/haeun-lee-628225316/"
     }
-  ],
-  "interestsOutsideStudy": [
-    "[Add an interest]",
-    "[Add an interest]",
-    "[Add an interest]"
   ]
 }

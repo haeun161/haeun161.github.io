@@ -1,13 +1,17 @@
 {
   "venue": "ICML 2026",
   "title": "Breaking the Lock-in: Diversifying Text-to-Image Generation via Representation Modulation",
-  "authors": "D. Kwon, H. Lee, J. Choi",
+  "authors": "Dahee Kwon, Haeun Lee, Jaesik Choi",
   "abstract": "",
-  "image": "",
+  "image": "assets/publications/ICML2026_main_fig.png",
   "links": [
     {
       "label": "Paper",
       "url": "https://arxiv.org/pdf/2606.06813"
+    },
+    {
+      "label": "Poster",
+      "url": "https://icml.cc/virtual/2026/poster/63627"
     }
   ]
 }

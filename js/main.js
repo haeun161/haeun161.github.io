@@ -143,6 +143,20 @@ function textElement(tag, className, text) {
   return element;
 }
 
+function appendHighlightedNames(element, text) {
+  const namePattern = /Haeun Lee|이하은/gi;
+  let previousIndex = 0;
+
+  for (const match of text.matchAll(namePattern)) {
+    element.append(document.createTextNode(text.slice(previousIndex, match.index)));
+    const name = textElement("strong", "", match[0]);
+    element.append(name);
+    previousIndex = match.index + match[0].length;
+  }
+
+  element.append(document.createTextNode(text.slice(previousIndex)));
+}
+
 function makeExternalLink(label, url, className = "") {
   if (!url) return null;
   const link = textElement("a", className, label);
@@ -157,9 +171,7 @@ function renderProfile(profile) {
   heading.prepend(document.createTextNode(profile.name));
   document.querySelector("#profile-role").textContent = profile.role;
   document.querySelector("#profile-affiliation").textContent = profile.affiliation;
-  document.querySelector("#profile-summary").textContent = profile.summary;
   document.title = `${profile.name} | Personal Profile`;
-  document.querySelector('meta[name="description"]').content = profile.summary;
 
   const photo = document.querySelector("#profile-photo");
   photo.src = profile.photo;
@@ -179,15 +191,12 @@ function renderProfile(profile) {
     links.append(link);
   });
 
-  const hobbies = document.querySelector("#hobby-list");
-  profile.interestsOutsideStudy.forEach((interest) => {
-    hobbies.append(textElement("span", "", interest));
-  });
 }
 
 function renderResearch(research) {
   document.querySelector("#research-lead").textContent = research.lead;
   document.querySelector("#research-summary").textContent = research.summary;
+  document.querySelector('meta[name="description"]').content = research.summary;
 
   const interestList = document.querySelector("#interest-list");
   research.interests.forEach((interest) => {
@@ -270,7 +279,14 @@ function renderPublications(publications, listId, type) {
     const card = textElement("article", "publication-item");
     const media = textElement("div", "publication-media");
 
-    if (publication.image) {
+    if (publication.image && publication.image.toLowerCase().endsWith(".pdf")) {
+      const preview = document.createElement("iframe");
+      preview.className = "publication-pdf-preview";
+      preview.src = `${publication.image}#page=1&toolbar=0&navpanes=0&view=FitH`;
+      preview.title = `PDF preview: ${publication.title}`;
+      preview.loading = "lazy";
+      media.append(preview);
+    } else if (publication.image) {
       const image = document.createElement("img");
       image.className = "publication-thumbnail";
       image.src = publication.image;
@@ -290,7 +306,9 @@ function renderPublications(publications, listId, type) {
     const description = type === "paper" ? publication.abstract : publication.description;
     details.append(textElement("p", "publication-venue", metadata));
     details.append(textElement("h3", "", publication.title));
-    details.append(textElement("p", "publication-authors", contributors));
+    const contributorsElement = textElement("p", "publication-authors", "");
+    appendHighlightedNames(contributorsElement, contributors);
+    details.append(contributorsElement);
     details.append(textElement("p", "publication-abstract", description));
 
     const links = textElement("div", "publication-links");
