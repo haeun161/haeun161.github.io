@@ -171,6 +171,7 @@ function renderProfile(profile) {
   heading.prepend(document.createTextNode(profile.name));
   document.querySelector("#profile-role").textContent = profile.role;
   document.querySelector("#profile-affiliation").textContent = profile.affiliation;
+  document.querySelector("#profile-location").textContent = profile.location ?? "";
   document.title = `${profile.name} | Personal Profile`;
 
   const photo = document.querySelector("#profile-photo");
@@ -224,6 +225,13 @@ function renderExperience(experiences) {
     body.append(textElement("p", "timeline-title", experience.role));
     body.append(textElement("p", "time-range", experience.period));
     body.append(textElement("p", "timeline-description", experience.description));
+    if (experience.highlights?.length) {
+      const highlights = textElement("ul", "experience-highlights");
+      experience.highlights.forEach((highlight) => {
+        highlights.append(textElement("li", "", highlight));
+      });
+      body.append(highlights);
+    }
     card.append(logo, body);
     timeline.append(card);
   });
@@ -233,15 +241,30 @@ function renderEducation(educationEntries) {
   const list = document.querySelector("#education-list");
   educationEntries.forEach((education) => {
     const card = textElement("article", "education-item");
-    card.append(textElement("span", "education-year", education.period));
+
+    const logo = textElement("div", "education-logo-placeholder", "Logo");
+    logo.setAttribute("aria-hidden", "true");
+    if (education.logo) {
+      const image = document.createElement("img");
+      image.className = "education-logo";
+      image.src = education.logo;
+      image.alt = `${education.institution} logo`;
+      logo.replaceChildren(image);
+    }
 
     const details = textElement("div", "");
+    details.append(textElement("span", "education-year", education.period));
     details.append(textElement("h3", "", education.institution));
     details.append(textElement("p", "", education.degree));
+    if (education.highlights?.length) {
+      const highlights = textElement("ul", "education-highlights");
+      education.highlights.forEach((highlight) => {
+        highlights.append(textElement("li", "", highlight));
+      });
+      details.append(highlights);
+    }
 
-    const arrow = textElement("span", "education-arrow", "↗");
-    arrow.setAttribute("aria-hidden", "true");
-    card.append(details, arrow);
+    card.append(logo, details);
     list.append(card);
   });
 }

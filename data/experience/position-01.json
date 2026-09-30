@@ -3,5 +3,10 @@
   "role": "Research Intern",
   "period": "2025.08 ~ 2026.09",
   "description": "Research on understanding the internal representations and generation mechanisms of Diffusion Models.",
-  "logo": "assets/experience/kaist_logo.png"
+  "logo": "assets/experience/Kaist_sailab_logo.png",
+  "highlights": [
+    "Government-funded project: PnPXAI (XAI tool development)",
+    "One paper accepted at ICML 2026",
+    "One paper in progress"
+  ]
 }
