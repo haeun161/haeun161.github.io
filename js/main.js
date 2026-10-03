@@ -10,6 +10,9 @@ const sectionLinks = [...navList.querySelectorAll("a")];
 const publicationSearch = document.querySelector("#publication-search");
 const publicationTabs = [...document.querySelectorAll(".publication-tab")];
 const publicationPanels = [...document.querySelectorAll(".publication-panel")];
+const imagePreviewDialog = document.querySelector("#image-preview-dialog");
+const imagePreviewContent = document.querySelector("#image-preview-content");
+const imagePreviewClose = document.querySelector("#image-preview-close");
 const dataStatus = document.querySelector("#data-status");
 
 currentYear.textContent = new Date().getFullYear();
@@ -129,6 +132,24 @@ publicationTabs.forEach((tab, index) => {
 });
 
 publicationSearch.addEventListener("input", filterVisiblePublications);
+
+let imagePreviewTrigger;
+document.querySelector("#papers-list").addEventListener("click", (event) => {
+  const trigger = event.target.closest(".publication-image-trigger");
+  if (!trigger) return;
+
+  const image = trigger.querySelector("img");
+  imagePreviewTrigger = trigger;
+  imagePreviewContent.src = image.currentSrc || image.src;
+  imagePreviewContent.alt = image.alt;
+  imagePreviewDialog.showModal();
+});
+
+imagePreviewClose.addEventListener("click", () => imagePreviewDialog.close());
+imagePreviewDialog.addEventListener("click", (event) => {
+  if (event.target === imagePreviewDialog) imagePreviewDialog.close();
+});
+imagePreviewDialog.addEventListener("close", () => imagePreviewTrigger?.focus());
 
 async function loadJson(path) {
   const response = await fetch(`data/${path}`);
@@ -310,11 +331,15 @@ function renderPublications(publications, listId, type) {
       preview.loading = "lazy";
       media.append(preview);
     } else if (publication.image) {
+      const trigger = textElement("button", "publication-image-trigger");
+      trigger.type = "button";
+      trigger.setAttribute("aria-label", `Enlarge image: ${publication.title}`);
       const image = document.createElement("img");
       image.className = "publication-thumbnail";
       image.src = publication.image;
       image.alt = `${publication.title} preview`;
-      media.append(image);
+      trigger.append(image);
+      media.append(trigger);
     } else {
       media.append(textElement("span", "", type === "paper" ? "Paper image" : "Patent"));
     }
